@@ -31,3 +31,8 @@ li.comment.dnm-filter-blocked.dnm-filter-temporarily-visible > .dnm-filter-origi
 div.comment-balloon > div.cld-like-dislike-wrap.cld-custom > div.cld-dislike-wrap.cld-common-wrap > a {
   display: inline-block !important;
 }
+
+/* Restore initial clicks; site inline styles retain cooldown control. */
+html div.comment-balloon > div.cld-like-dislike-wrap.cld-custom > div.cld-dislike-wrap.cld-common-wrap > a {
+  pointer-events: auto;
+}
