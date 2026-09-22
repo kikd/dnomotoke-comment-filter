@@ -1,5 +1,5 @@
 import type { ParsedComment, RuleChange } from "../domain/types";
-import { button } from "./comment-renderer";
+import { button } from "../ui/button";
 export function openRegisterDialog(comment: ParsedComment, save: (change: RuleChange) => Promise<void>): void {
   if (document.querySelector(".dnm-filter-dialog")) return;
   const previousFocus = document.activeElement as HTMLElement | null;
@@ -20,10 +20,17 @@ export function openRegisterDialog(comment: ParsedComment, save: (change: RuleCh
   const cancel = button("キャンセル", "dnm-filter-cancel-button", close);
   const add = button("NGに追加", "dnm-filter-add-button", () => { void submit(); });
   const refresh = () => { add.disabled = saving || (!id.input.checked && !host.input.checked); };
+  const setSaving = (value: boolean) => {
+    saving = value;
+    cancel.disabled = value;
+    id.input.disabled = value;
+    host.input.disabled = value;
+    refresh();
+  };
   id.input.addEventListener("change", refresh); host.input.addEventListener("change", refresh);
   const submit = async () => {
     if (saving || add.disabled) return;
-    saving = true; refresh(); cancel.disabled = true; id.input.disabled = true; host.input.disabled = true;
+    setSaving(true);
     try {
       await save({ type: "add", identifiers: id.input.checked ? [comment.identifier] : [],
         hosts: host.input.checked ? [comment.host] : [] });
@@ -31,7 +38,7 @@ export function openRegisterDialog(comment: ParsedComment, save: (change: RuleCh
     } catch {
       status.textContent = "保存できませんでした。設定は変更されていません。再試行してください。";
     } finally {
-      saving = false; cancel.disabled = false; id.input.disabled = false; host.input.disabled = false; refresh();
+      setSaving(false);
     }
   };
   dialog.addEventListener("cancel", event => { if (saving) event.preventDefault(); });
@@ -39,3 +46,4 @@ export function openRegisterDialog(comment: ParsedComment, save: (change: RuleCh
   const actions = document.createElement("div"); actions.className = "dnm-filter-dialog-actions"; actions.append(cancel, add);
   dialog.append(title, id.label, host.label, status, actions); document.body.append(dialog); dialog.showModal();
 }
+
