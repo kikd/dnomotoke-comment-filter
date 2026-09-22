@@ -10,7 +10,7 @@
     "96": "icons/icon-96.png",
     "128": "icons/icon-128.png"
   },
-  "description": "のもとけのコメントを識別IDまたはIP / ホストで折りたたみ、dislikeリンクを再表示します。",
+  "description": "dnomotoke.comのコメント欄を自分に合った表示に調整できる非公式のブラウザ拡張機能です。",
   "permissions": [
     "storage"
   ],
