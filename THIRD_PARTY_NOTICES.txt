@@ -1,0 +1,30 @@
+Third-party software notices
+============================
+
+webextension-polyfill 0.12.0
+Author / upstream project: Mozilla and contributors
+License: Mozilla Public License, version 2.0 (MPL-2.0)
+
+This extension includes webextension-polyfill in background.js, content.js,
+and options.js. The MPL-covered portions remain available under MPL-2.0.
+The application sources are separate from these library sources. The library
+has not been manually modified; esbuild wraps it into the extension bundles.
+
+License text: LICENSE-webextension-polyfill.txt (included in this package).
+
+Source Code Form, for this exact library version, is available free of charge:
+https://github.com/mozilla/webextension-polyfill/tree/0.12.0
+https://github.com/mozilla/webextension-polyfill/archive/refs/tags/0.12.0.zip
+
+The versioned upstream repository includes the editable src/browser-polyfill.js,
+api-metadata.json and build scripts. Preserve its MPL notices when redistributing
+or modifying those files.
+
+The unmodified npm distribution JavaScript, source map and package metadata are
+also included locally in third-party/webextension-polyfill/. These retain their
+original notices. The source map contains embedded source content. These files
+are provided for reference and are not separately executed by the extension.
+
+The same library license and source-location notice apply to both the browser
+upload ZIPs and the separate extension source ZIP. Nothing here restricts the
+recipient's rights to the MPL-covered source code under MPL-2.0.

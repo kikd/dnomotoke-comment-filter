@@ -1,0 +1,33 @@
+/* Only the direct body of this node is hidden; replies remain intact. */
+li.comment.dnm-filter-blocked:not(.dnm-filter-temporarily-visible) > .dnm-filter-original-content {
+  display: none !important;
+}
+li.comment.dnm-filter-blocked.dnm-filter-temporarily-visible > .dnm-filter-placeholder {
+  display: none !important;
+}
+.dnm-filter-placeholder > .comment-balloon {
+  background: #f3f5f6;
+}
+.dnm-filter-placeholder-message {
+  color: #586168;
+  font: 13px/1.6 system-ui, sans-serif; overflow-wrap: anywhere;
+}
+li.comment > .dnm-filter-original-content .dnm-filter-hide-button { display: none !important; }
+li.comment.dnm-filter-blocked.dnm-filter-temporarily-visible > .dnm-filter-original-content .dnm-filter-hide-button { display: inline-block !important; }
+.dnm-filter-block-button, .dnm-filter-show-button, .dnm-filter-hide-button {
+  font: inherit; cursor: pointer; border: 1px solid #9daeb8; border-radius: 4px;
+  background: #fff; color: #244e66; padding: 2px 8px; margin: 2px 6px;
+}
+.dnm-filter-dialog { color: #172d3a; background: #fff; border: 1px solid #becbd2; border-radius: 12px;
+  padding: 24px; width: min(440px, calc(100vw - 64px)); font: 15px/1.6 system-ui, sans-serif; }
+.dnm-filter-dialog::backdrop { background: #11223380; }
+.dnm-filter-dialog h2 { font: bold 20px/1.4 system-ui, sans-serif; margin: 0 0 20px; }
+.dnm-filter-dialog label { display: flex; gap: 10px; align-items: baseline; margin: 14px 0; overflow-wrap: anywhere; }
+.dnm-filter-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.dnm-filter-dialog button { padding: 8px 14px; border-radius: 5px; border: 1px solid #9daeb8; cursor: pointer; }
+.dnm-filter-dialog .dnm-filter-add-button { background: #245c7c; color: #fff; }
+.dnm-filter-dialog button:disabled { opacity: .5; cursor: default; }
+.dnm-filter-dialog [role="alert"], .dnm-filter-error { color: #a02d27; }
+div.comment-balloon > div.cld-like-dislike-wrap.cld-custom > div.cld-dislike-wrap.cld-common-wrap > a {
+  display: inline-block !important;
+}

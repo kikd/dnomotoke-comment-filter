@@ -1,0 +1,30 @@
+{
+  "name": "dnomotoke-comment-filter",
+  "version": "0.1.4",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.15"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "node scripts/build.mjs",
+    "build:chrome": "node scripts/build.mjs chromium",
+    "build:firefox": "node scripts/build.mjs firefox",
+    "test:browser": "node scripts/browser-tests.mjs"
+  },
+  "dependencies": {
+    "webextension-polyfill": "0.12.0"
+  },
+  "devDependencies": {
+    "@types/webextension-polyfill": "0.12.3",
+    "typescript": "5.9.3",
+    "esbuild": "0.25.12",
+    "vitest": "2.1.9",
+    "jsdom": "24.1.3",
+    "playwright": "1.56.1",
+    "@types/node": "22.19.3"
+  }
+}
